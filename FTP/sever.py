@@ -1,0 +1,22 @@
+import socket
+host = socket.gethostname()
+port = 4443
+s = socket.socket()
+s.bind((host, port))
+s.listen()
+print("Server is listening.")
+while True:
+    conn, addr = s.accept()
+    print(f"{addr} connected.")
+    filename = conn.recv(1024).decode()
+    print("Receiving the filename.")
+    file = open(filename, "w")
+    print(file)
+    conn.send("Filename received.".encode())
+    data = conn.recv(1024).decode()
+    print("Receiving the file data.")
+    file.write(data)
+    print(data)
+    conn.send("File data received".encode())
+    file.close()
+    conn.close()
