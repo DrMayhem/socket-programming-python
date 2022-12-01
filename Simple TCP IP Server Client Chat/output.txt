@@ -1,0 +1,20 @@
+server.py:
+
+Connection from: ('127.0.0.1', 57822)
+from connected user: Hi
+ -> Hello
+from connected user: How are you?
+ -> Good
+from connected user: Awesome!
+ -> Ok bye!
+ 
+ 
+ client.py:
+ 
+  -> Hi
+Received from server: Hello
+ -> How are you?
+Received from server: Good
+ -> Great!
+Received from server: Ok then, bye!
+ -> Bye
